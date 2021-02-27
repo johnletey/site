@@ -1,5 +1,3 @@
-import { QuestionIcon } from "@primer/octicons-react";
-
 const Logo = (props: { name: string; size?: number }) => {
   const size = props.size || 36;
 
@@ -85,7 +83,7 @@ const Logo = (props: { name: string; size?: number }) => {
         </svg>
       );
     default:
-      return <QuestionIcon size={36} />;
+      return <></>;
   }
 };
 

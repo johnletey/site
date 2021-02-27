@@ -3,7 +3,6 @@ import { Card, Text, Row } from "@geist-ui/react";
 import { ArrowUpRightIcon } from "@primer/octicons-react";
 import Logo from "./Logo";
 
-// TODO(@johnletey): Horizontally centre logo in card.
 // TODO(@johnletey): Add icon animation on hover.
 const Block = (props: { name: string; description: string; link: string }) => {
   const [hovered, setHovered] = useState(false);
@@ -16,10 +15,14 @@ const Block = (props: { name: string; description: string; link: string }) => {
       onClick={() => window.open(props.link, "_blank")}
     >
       <Row align="middle" justify="space-between">
-        <Text h3>{props.name}</Text>
+        <span>
+          <Text h3>{props.name}</Text>
+          <Text type="secondary" style={{ margin: 0 }}>
+            {props.description}
+          </Text>
+        </span>
         {hovered ? <ArrowUpRightIcon size={36} /> : <Logo name={props.name} />}
       </Row>
-      <Text type="secondary">{props.description}</Text>
     </Card>
   );
 };
