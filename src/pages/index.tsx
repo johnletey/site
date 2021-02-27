@@ -32,6 +32,7 @@ const Home = () => {
           name={project.name}
           description={project.description}
           link={project.link}
+          key={project.name}
         />
       ))}
     </Page>
