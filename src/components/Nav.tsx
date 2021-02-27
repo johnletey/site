@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { Row, Link, Spacer } from "@geist-ui/react";
+import { links as data } from "../data";
 import { XIcon, ThreeBarsIcon } from "@primer/octicons-react";
-
-const Data = [
-  { name: "Thoughts", link: "/thoughts" },
-  { name: "@johnletey", link: "https://twitter.com/johnletey" },
-];
 
 // TODO(@johnletey): Find better icons.
 // TODO(@johnletey): Add icon animation on click.
@@ -16,7 +12,7 @@ const Nav = () => {
     <Row align="middle">
       {open && (
         <>
-          {Data.map((entry) => (
+          {data.map((entry) => (
             <>
               <Link
                 target={entry.link.startsWith("/") ? undefined : "_blank"}
@@ -25,7 +21,7 @@ const Nav = () => {
               >
                 {entry.name}
               </Link>
-              <Spacer x={1} />
+              <Spacer x={2} />
             </>
           ))}
         </>
