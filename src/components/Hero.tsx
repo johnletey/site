@@ -1,7 +1,13 @@
-import { Row, Text } from "@geist-ui/react";
+import { useRouter } from "next/router";
+import { Row, Link, Text } from "@geist-ui/react";
 import Nav from "./Nav";
 
+// TODO(@johnletey): Align items in navbar. Sticky navbar.
+// TODO(@johnletey): Handle full-height better.
 const Hero = (props: { title: string }) => {
+  const router = useRouter();
+  const isHome = router.route === "/";
+
   return (
     <div
       style={{
@@ -9,7 +15,12 @@ const Hero = (props: { title: string }) => {
         height: "100vh",
       }}
     >
-      <Row justify="end">
+      <Row align="middle" justify={isHome ? "end" : "space-between"}>
+        {!isHome && (
+          <Link href="/">
+            <Text h3>letey</Text>
+          </Link>
+        )}
         <Nav />
       </Row>
       <div

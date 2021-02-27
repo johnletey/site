@@ -31,7 +31,7 @@ const Projects = () => {
           name={project.name}
           description={project.description}
           link={project.link}
-          key={project.name}
+          key={project.link}
         />
       ))}
     </>
