@@ -4,12 +4,25 @@ import { ArrowUpRightIcon } from "@primer/octicons-react";
 import Logo from "./Logo";
 
 // TODO(@johnletey): Add icon animation on hover.
-const Block = (props: { name: string; description: string; link: string }) => {
+const Block = (props: {
+  name: string;
+  description: string;
+  link: string;
+  isLast: boolean;
+}) => {
   const [hovered, setHovered] = useState(false);
+  const border = `1px solid ${hovered ? "#a76c6e" : "#333"}`;
 
   return (
     <Card
-      style={{ borderRadius: 0, cursor: "pointer" }}
+      style={{
+        borderTop: border,
+        borderBottom: props.isLast || hovered ? border : "1px solid #000",
+        borderLeft: border,
+        borderRight: border,
+        borderRadius: 0,
+        cursor: "pointer",
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => window.open(props.link, "_blank")}

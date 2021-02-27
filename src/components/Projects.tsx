@@ -26,14 +26,19 @@ const Data = [
 const Projects = () => {
   return (
     <>
-      {Data.map((project) => (
-        <Block
-          name={project.name}
-          description={project.description}
-          link={project.link}
-          key={project.link}
-        />
-      ))}
+      {Data.map((project) => {
+        const index = Data.indexOf(project);
+
+        return (
+          <Block
+            name={project.name}
+            description={project.description}
+            link={project.link}
+            key={project.link}
+            isLast={index === Data.length - 1}
+          />
+        );
+      })}
     </>
   );
 };
