@@ -17,6 +17,7 @@ const Nav = () => {
               <Link
                 target={entry.link.startsWith("/") ? undefined : "_blank"}
                 href={entry.link}
+                style={{ color: "#8f9ba8" }}
                 underline
               >
                 {entry.name}
