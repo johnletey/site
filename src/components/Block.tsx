@@ -34,7 +34,13 @@ const Block = (props: {
             {props.description}
           </Text>
         </span>
-        {hovered ? <ArrowUpRightIcon size={36} /> : <Logo name={props.name} />}
+        {hovered ? (
+          <span style={{ color: "#8f9ba8" }}>
+            <ArrowUpRightIcon size={36} />
+          </span>
+        ) : (
+          <Logo name={props.name} />
+        )}
       </Row>
     </Card>
   );

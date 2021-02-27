@@ -9,7 +9,7 @@ const Footer = () => {
     <>
       <Spacer y={2.5} />
       <Row align="middle" justify="space-between">
-        <Row align="middle" justify="center" style={{ color: "#333" }}>
+        <Row align="middle" justify="center" style={{ color: "#8f9ba8" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -37,7 +37,7 @@ const Footer = () => {
           >
             <Twitter
               size={20}
-              color={hovered === "twitter" ? "#a76c6e" : "#333"}
+              color={hovered === "twitter" ? "#a76c6e" : "#8f9ba8"}
             />
           </Link>{" "}
           <Link
@@ -49,7 +49,7 @@ const Footer = () => {
           >
             <GitHub
               size={20}
-              color={hovered === "github" ? "#a76c6e" : "#333"}
+              color={hovered === "github" ? "#a76c6e" : "#8f9ba8"}
             />
           </Link>{" "}
           <Link
@@ -58,7 +58,10 @@ const Footer = () => {
             onMouseEnter={() => setHovered("mail")}
             onMouseLeave={() => setHovered("")}
           >
-            <AtSign size={20} color={hovered === "mail" ? "#a76c6e" : "#333"} />
+            <AtSign
+              size={20}
+              color={hovered === "mail" ? "#a76c6e" : "#8f9ba8"}
+            />
           </Link>
         </Row>
       </Row>
