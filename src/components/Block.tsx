@@ -7,6 +7,7 @@ import Logo from "./Logo";
 const Block = (props: {
   name: string;
   description: string;
+  icon?: any;
   link: string;
   isLast: boolean;
 }) => {
@@ -39,7 +40,7 @@ const Block = (props: {
             <ArrowUpRightIcon size={36} />
           </span>
         ) : (
-          <Logo name={props.name} />
+          <>{props.icon || <Logo name={props.name} />}</>
         )}
       </Row>
     </Card>
