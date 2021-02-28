@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Text, Row } from "@geist-ui/react";
+import { useMediaQuery, Card, Text, Row } from "@geist-ui/react";
 import { ArrowUpRightIcon } from "@primer/octicons-react";
 import Logo from "./Logo";
 
@@ -13,6 +13,7 @@ const Block = (props: {
 }) => {
   const [hovered, setHovered] = useState(false);
   const border = `1px solid ${hovered ? "#a76c6e" : "#333"}`;
+  const isMobile = useMediaQuery("mobile");
 
   return (
     <Card
@@ -28,11 +29,11 @@ const Block = (props: {
       onMouseLeave={() => setHovered(false)}
       onClick={() => window.open(props.link, "_blank")}
     >
-      <Row align="middle" justify="space-between">
+      <Row align={isMobile ? "bottom" : "middle"} justify="space-between">
         <span>
           <Text h3>{props.name}</Text>
           <Text type="secondary" style={{ margin: 0 }}>
-            {props.description}
+            <span dangerouslySetInnerHTML={{ __html: props.description }} />
           </Text>
         </span>
         {hovered ? (

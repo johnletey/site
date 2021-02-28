@@ -1,8 +1,9 @@
-import { GitPullRequestIcon } from "@primer/octicons-react";
-import moment from "moment";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { useMediaQuery } from "@geist-ui/react";
 import query from "../queries/prs";
+import moment from "moment";
 import Block from "./Block";
+import { GitPullRequestIcon } from "@primer/octicons-react";
 
 interface PullRequest {
   title: string;
@@ -16,6 +17,7 @@ interface PullRequest {
 
 const PullRequests = (props: { token: string }) => {
   const [data, setData] = useState<PullRequest[]>([]);
+  const isMobile = useMediaQuery("mobile");
 
   useEffect(() => {
     (async () => {
@@ -84,9 +86,9 @@ const PullRequests = (props: { token: string }) => {
       {data.map((pr) => (
         <Block
           name={pr.title}
-          description={`${pr.repo}#${pr.number} • ${moment(pr.startDate).format(
-            "MMM DD, YYYY"
-          )}`}
+          description={`${pr.repo}#${pr.number}${
+            isMobile ? "<br />" : " "
+          }• ${moment(pr.startDate).format("MMM DD, YYYY")}`}
           icon={
             <span style={{ color: pr.color }}>
               <GitPullRequestIcon size={30} />
