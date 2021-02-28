@@ -30,7 +30,12 @@ const Hero = (props: { title: string }) => {
           transform: "translateY(-80%)",
         }}
       >
-        <Text h2>{props.title}</Text>
+        <Text
+          h2
+          style={{ background: "rgba(255, 255, 255, 0.99)", color: "#000" }}
+        >
+          {props.title}
+        </Text>
       </div>
     </div>
   );
