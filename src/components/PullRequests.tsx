@@ -14,7 +14,7 @@ interface PullRequest {
   endDate: string | undefined;
 }
 
-const PullRequests = () => {
+const PullRequests = (props: { token: string }) => {
   const [data, setData] = useState<PullRequest[]>([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const PullRequests = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${"798864c6b330a9bb41f4c374fba833089edf3268"}`,
+          Authorization: `Bearer ${props.token}`,
         },
         body: JSON.stringify({ query }),
       });
